@@ -1,0 +1,20 @@
+.loading {
+    box-shadow: 20px 20px 0px pink !important;
+  }
+
+.card{
+  width: 300px;
+  border: 1px solid rgb(187, 181, 181);
+  border-radius: 8px;
+  margin: 20px;
+  padding: 15px;
+  background-color: white;
+
+  img{
+    padding-left: 12px;
+  }
+}
+.cards-container{
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,16 @@
+<div class="right" *ngIf="(food$ | async); else noItems">
+
+    <h3>List of foods added</h3>
+    <ul>
+      <li *ngFor="let food of food$ | async">
+          <p> {{food.quantity}} X {{food.name}}</p>
+      </li>
+    </ul>
+  
+</div>
+
+<ng-template #noItems>
+  <ul>
+    <li style="max-width:250px;margin:0 auto;">No items found. Add food to see it here. </li>
+  </ul>
+</ng-template>

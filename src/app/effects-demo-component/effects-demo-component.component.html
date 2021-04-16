@@ -1,0 +1,26 @@
+<div id="wrapper">
+    <div [class.loading]="(loading$ | async)" id="shopping-list" *ngIf="!(error$ | async); else error">
+      <div id="list">
+          <div class="cards-container" *ngIf="(movies$ | async); else noItems">
+            <div class="card" *ngFor="let movie of movies$ | async" >
+              <img [src]="movie.imageURL" alt="image" width="200" height="200">
+              <p>TITLE: {{ movie.title }}</p>
+              <p>DIRECTOR: {{ movie.director }}</p>
+              <p>ACTORS:</p>
+              <p *ngFor="let actor of movie.actors">
+                <b><span>{{actor}}</span></b>
+              </p>
+            </div>
+          </div>
+        <ng-template #noItems>
+          <ul>
+            <li style="max-width:250px;margin:0 auto;">No items found. Are you sure there's <em>nothing</em> you want?</li>
+          </ul>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #error>
+    <h2>{{(error$ | async)?.message}}</h2>
+  </ng-template>
